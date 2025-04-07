@@ -118,7 +118,7 @@ export default function CreateModal() {
             >
               <button
                 style={{ backgroundColor: colorModal }}
-                className="h-7 w-22 rounded-2xl "
+                className="h-7.5 w-22 rounded-2xl "
                 onClick={() => setIsOpen(false)}
               />
             </Input>
