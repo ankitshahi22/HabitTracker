@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Lable from "./Lable";
+import Input from "./Input";
 
 export default function CreateModal() {
   const [colorModal, setColorModal] = useState("#3B82F6");
@@ -101,30 +102,45 @@ export default function CreateModal() {
       {!isOpen ? (
         <ColorModal />
       ) : (
-        <div>
+        <div className="flex flex-col gap-3 py-3 px-4">
           <div className="flex py-2 px-4 border-b border-gray-200">
             <h2 className="mx-auto text-[15px]">Create Habit</h2>
             <button className="text-gray-400 text-sm">Cancel</button>
           </div>
-          <div className="py-3 px-4">
-            <Lable label="TITLE" />
-            <div className="bg-[#F1EFEC] rounded-xl mt-1">
-              <input
-                type="text"
-                className="border-b border-gray-300 w-full py-2 px-1.5 outline-none text-sm text-gray-600"
-                placeholder="Add habit title"
+
+          <div>
+            <Lable title="TITLE" />
+            <Input
+              title="Color"
+              input="text"
+              className="border-b border-gray-300 w-full py-2 px-1.5 outline-none text-gray-600 font-light"
+              placeholder="Add habit title"
+            >
+              <button
+                style={{ backgroundColor: colorModal }}
+                className="h-7 w-22 rounded-2xl "
+                onClick={() => setIsOpen(false)}
               />
-              <div className="flex items-center justify-between px-2 py-1.5">
-                <p className="text-sm">Color</p>
-                <button
-                  style={{ backgroundColor: colorModal }}
-                  className="h-5 w-16 rounded-2xl"
-                  onClick={() => setIsOpen(false)}
+            </Input>
+          </div>
+          <div className="">
+            <Lable title="GOAL" />
+            <div className="bg-[#F1EFEC] rounded-xl mt-1 px-1">
+              <div className="flex justify-between items-center py-1">
+                <Input title="Goal Value" />
+                <Input
+                  input="text"
+                  className="text-center h-8 w-23 outline-none bg-[#DBDBDB] rounded-xl"
+                  defaultValue="1"
                 />
               </div>
-            </div>
-            <div>
-              <Lable label="GOAL" />
+              <div className="border-b border-gray-300"></div>
+              <div className="flex justify-between items-center py-2">
+                <Input title="Repeat" />
+                <button className="text-[15px] text-center outline-none bg-[#DBDBDB] rounded-xl px-3 py-1.5">
+                  Every day
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -132,3 +148,28 @@ export default function CreateModal() {
     </>
   );
 }
+
+{
+  /* <div className="bg-[#F1EFEC] rounded-xl mt-1">
+            <input
+              type="text"
+              className="border-b border-gray-300 w-full py-2 px-1.5 outline-none text-sm text-gray-600"
+              placeholder="Add habit title"
+            />
+            <div className="flex items-center justify-between px-2 py-1.5">
+              <p className="text-sm">Color</p>
+
+            </div>
+          </div> */
+}
+{
+  /* <div>
+            <Lable label="GOAL" />
+          </div> */
+}
+
+// "text-center h-7 w-20 p-4 outline-none bg-[#DBDBDB] rounded-xl";
+// "border-b border-gray-300 w-full py-2 px-1.5 outline-none text-gray-600"
+// <div>
+//   <Lable label="GOAL" />
+// </div>
